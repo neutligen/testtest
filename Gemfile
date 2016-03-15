@@ -13,7 +13,7 @@ gem 'coffee-rails', '4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails', '4.0.3'
+gem 'jquery-rails', '>= 4.0.5'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks', '2.3.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -30,9 +30,9 @@ gem 'sdoc', '0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 # fullcalendarのgemを追加
-gem 'fullcalendar-rails'
+gem 'fullcalendar-rails', '2.6.1.0'
 # fullcalendarを使うのに必要なgem
-gem 'momentjs-rails'
+gem 'momentjs-rails', '2.11.0'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
@@ -43,6 +43,12 @@ group :development, :test do
   gem 'web-console', '2.0.0.beta3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '1.1.3'
+end
+
+group :test do
+  gem 'minitest-reporters', '1.0.5'
+  gem 'mini_backtrace', '0.1.3'
+  gem 'guard-minitest', '2.3.1'
 end
 
 group :production do
