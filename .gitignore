@@ -16,3 +16,6 @@
 !/log/.keep
 /tmp
 *.log
+
+# spring gemとgitの競合を回避するために追記_20160324
+/spring/*.pid
