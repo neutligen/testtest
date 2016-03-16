@@ -1,3 +1,44 @@
 <% provide(:title, '新規登録') %>
 <h1>新規登録</h1>
-<p>ユーザー登録ページ</p>
+
+<div class="row">
+	<div class="col-md-4 col-md-offset-1">
+		<%= form_for(@user) do |f| %>
+			<%= render 'shared/error_messages' %>
+
+			<%= f.label :email, "メールアドレス" %>
+			<%= f.email_field :email, class: 'form-control' %>
+
+			<%= f.label :password, "パスワード" %>
+			<%= f.password_field :password, class: 'form-control' %>
+
+			<%= f.label :password_confirmation, "パスワード確認（再入力）" %>
+			<%= f.password_field :password_confirmation, class: 'form-control' %>
+
+			<%= f.submit "アカウント作成", class: "btn btn-success" %>
+		<% end %>
+
+	</div>
+
+	<div class="col-md-4 col-md-offset-2">
+		<form accept-charset="UTF-8" action="#" class="new_ser"
+      id="new_ser" method="#">
+
+  <label for="user_email">Email</label>
+  <input id="ser_email" name="ser[email]" type="email" />
+
+  <label for="user_password">Password</label>
+  <input id="ser_password" name="ser[password]"
+         type="password" />
+
+  <label for="user_password_confirmation">Confirmation</label>
+  <input id="ser_password_confirmation"
+         name="ser[password_confirmation]" type="password" />
+
+  <input class="btn btn-success" name="commit" type="submit"
+         value="Create my account" />
+</form>
+
+	</div>
+
+</div>
