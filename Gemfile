@@ -61,5 +61,8 @@ group :production do
 	gem 'pg', '0.17.1'
 	# pg同様、herokuが指定しているgem
 	gem 'rails_12factor', '0.0.2'
+  # herokuのデフォルトWebサーバー(WEBrick)は多数のリクエストをさばくのに向いていないので、リクエスト処理に長けたWebサーバーを本番環境に適用
+  gem 'puma', '2.11.1'
+
 end
 
