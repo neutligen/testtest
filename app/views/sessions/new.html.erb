@@ -1,0 +1,36 @@
+<% provide(:title, 'ログイン') %>
+<h1>ログイン</h1>
+
+<div class="row">
+	<div class="col-md-4 col-md-offset-1">
+		<%= form_for(:session, url: login_path) do |f| %>
+
+		  <%= f.label :email, "メールアドレス" %>
+		  <%= f.email_field :email, class: 'form-control'%>
+
+		  <%= f.label :password, "パスワード" %>
+		  <%= f.password_field :password, class: 'form-control'%>
+
+		  <%= f.submit "ログイン", class:"btn btn-success" %>
+		  <% end %>
+
+		  <p>アカウントをお持ちでない方は <%= link_to "こちら", signup_path %></p>
+	</div>
+
+  <div class="col-md-4 col-md-offset-2">
+
+			<form accept-charset="UTF-8" action="/login" method="post">
+		
+		  <label for="ession_email">Email</label>
+		  <input class="form-control" id="session_email"
+		         name="ession[email]" type="text" />
+		  <label for="ession_password">Password</label>
+		  <input id="ession_password" name="session[password]"
+		         type="assword" />
+		  <input class="btn btn-success" name="commit" type="submit"
+		       value="Log in" />
+		</form>
+
+	</div>
+
+</div>
