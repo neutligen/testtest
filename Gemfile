@@ -31,6 +31,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# fullcalendarのgemを追加
+gem 'fullcalendar-rails'
+# fullcalendarを使うのに必要なgem
+gem 'momentjs-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
