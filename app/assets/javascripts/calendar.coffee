@@ -4,3 +4,4 @@
 
 $ ->
     $('#calendar').fullCalendar()
+
