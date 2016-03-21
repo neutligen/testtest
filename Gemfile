@@ -35,6 +35,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'fullcalendar-rails'
 # fullcalendarを使うのに必要なgem
 gem 'momentjs-rails'
+# 認証機構にh必要なgem
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
