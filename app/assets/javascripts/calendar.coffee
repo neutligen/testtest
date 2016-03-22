@@ -2,6 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
-    $('#calendar').fullCalendar()
-
+$(document).ready ->
+  $('#calendar').fullCalendar
+    header:
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay',
+    defaultView: 'month',
+    slotMinutes: 30,
+    timeFormat: 'H:mm',
