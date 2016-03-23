@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class SiteLayoutTest < ActionDispatch::IntegrationTest
-  
+
   test "リンクを確認する"  do
   	get root_path
   	assert_template 'static_pages/home'
@@ -9,5 +9,8 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   	assert_select "a[href=?]", help_path
   	assert_select "a[href=?]", about_path
   	assert_select "a[href=?]", contact_path
+  	get signup_path
+  	assert_select "title", full_title("新規登録")
   end
+
 end
