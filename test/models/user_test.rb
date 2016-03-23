@@ -58,5 +58,9 @@ class UserTest < ActiveSupport::TestCase
 		@user.save
 		assert_equal "user@example.com", @user.reload.email
 	end
+
+	test "別ブラウザでログアウトされた場合に(二重ログアウトを避けるため)authenticated?にfalseを返す" do
+		assert_not @user.authenticated?('')
+	end
 	
 end
