@@ -7,11 +7,20 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "不正な更新" do
-  	current_user = users(:michael)
+  	log_in_as(@user)
   	get edit_user_path(@user)
   	assert_template 'users/edit'
-  	patch user_path(@user), user:{email: "foo@invalid", password: "foo", password_confirmation: "bar" }
+  	patch user_path(@user), user:{password: "foo", password_confirmation: "bar" }
   	assert_template 'users/edit'
+  end
+
+  test "正当な更新" do
+    log_in_as(@user)
+  	get edit_user_path(@user)
+  	assert_template 'users/edit'
+  	patch user_path(@user), user: { password: "foobarbaz", password_confirmation: "foobarbaz"}
+  	assert_not flash.empty?
+  	assert_redirected_to @user
   end
 
 end
