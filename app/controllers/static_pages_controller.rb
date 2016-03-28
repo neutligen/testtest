@@ -2,7 +2,6 @@ class StaticPagesController < ApplicationController
 	before_action :user_set
 
   def home
-  	@user = current_user
   end
 
   def help
