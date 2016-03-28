@@ -5,6 +5,11 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # password_digestを生成するハッシュ関数を提供するgem
 gem 'bcrypt', '3.1.7'
+# db/seedsを生成sるのに必要なgem
+gem 'faker', '1.4.2'
+# ページネーション関連のgem
+gem 'will_paginate', '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
 # bootstrapのgem、敢えてチュートリアルに合わせて最新版を使用しない_20160325
 gem 'bootstrap-sass', '3.2.0.0'
 # Use SCSS for stylesheets
