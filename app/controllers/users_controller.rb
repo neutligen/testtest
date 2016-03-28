@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def index
+    # gravatarでnavbarに画像を表示するためには@userにログイン中のユーザが格納されている必要があるための対応_20160328
+    @user = current_user
     @users = User.paginate(page: params[:page])
   end
 

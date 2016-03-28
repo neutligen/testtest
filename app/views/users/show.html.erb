@@ -5,6 +5,9 @@
 		  <h1>
 		  	<%= gravatar_for @user %>
 		  	<%= @user.email[/[a-z\d\w\-.]+/,0]%>
+            <% if current_user.admin? %>
+              <h2><%= link_to "ユーザー管理", users_path %></h2>
+            <% end %>
 		  </h1>
     </section>
   </aside>

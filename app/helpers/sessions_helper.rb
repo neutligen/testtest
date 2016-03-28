@@ -37,7 +37,7 @@ module SessionsHelper
 
   # # 管理者ユーザか確認
   # def admin_user?
-  #   @current_user.admin?
+  #   current_user.admin?
   # end
 
   # 永続的セッションを破棄する
