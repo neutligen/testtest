@@ -1,0 +1,6 @@
+<%= @user.email[/[a-z\d\w\-.]+/,0] %>さん
+
+Habitizeへのご登録、ありがとうございます！
+下のリンクをタップ/クリックして、アカウントを有効にしてください。
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>

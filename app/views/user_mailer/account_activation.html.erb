@@ -1,0 +1,8 @@
+<h1>Habitize</h1>
+
+<p><%= @user.email[/[a-z\d\w\-.]+/,0] %>さん</p>
+
+<p>Habitizeへのご登録、ありがとうございます！<br>
+下のリンクをタップ/クリックして頂くと、ご利用を開始頂けます。</p>
+
+<%= link_to "はじめる", edit_account_activation_url(@user.activation_token,　email: @user.email) %>

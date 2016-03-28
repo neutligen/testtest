@@ -21,7 +21,8 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	if @user.save
       log_in @user
-  		flash[:info] = "Habitaizeにご登録いただき、ありがとうございます！"
+      UserMailer.account_activation(@user).deliver_now
+  		flash[:info] = "Habitaizeにご登録いただき、ありがとうございます！ お送りしたメールからアカウントを有効化してください。"
   		redirect_to @user
   	else
   		render 'new'

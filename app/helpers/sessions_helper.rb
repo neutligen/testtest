@@ -23,7 +23,7 @@ module SessionsHelper
     	@current_user ||= User.find_by(id: user_id)
     elsif (user_id = cookies.signed[:user_id])
       user = User.find_by(id: user_id)
-      if user && user.authenticated?(cookies[:remember_token])
+      if user && user.authenticated?(:remember, cookies[:remember_token])
         log_in user
         @current_user = user
       end
@@ -34,11 +34,6 @@ module SessionsHelper
   def logged_in?
   	!current_user.nil?
   end
-
-  # # 管理者ユーザか確認
-  # def admin_user?
-  #   current_user.admin?
-  # end
 
   # 永続的セッションを破棄する
   def forget(user)

@@ -60,7 +60,7 @@ class UserTest < ActiveSupport::TestCase
 	end
 
 	test "別ブラウザでログアウトされた場合に(二重ログアウトを避けるため)authenticated?にfalseを返す" do
-		assert_not @user.authenticated?('')
+		assert_not @user.authenticated?(:remember, '')
 	end
 	
 end
