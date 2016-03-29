@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   	if @user.save
       log_in @user
       @user.send_activation_email
-  		flash[:info] = "Habitaizeにご登録いただき、ありがとうございます！ お送りしたメールからアカウントを有効化してください。"
+  		flash[:info] = "Habitizeにご登録いただき、ありがとうございます！ お送りしたメールからアカウントを有効化してください。"
   		redirect_to @user
   	else
   		render 'new'

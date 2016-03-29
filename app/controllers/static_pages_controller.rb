@@ -17,6 +17,8 @@ class StaticPagesController < ApplicationController
 
   # gravatarでnavbarに画像を表示するためには@userにログイン中のユーザが格納されている必要があるための対応_20160328
   def user_set
-  	@user = current_user
+    if current_user
+      @user = current_user
+    end
   end
 end
