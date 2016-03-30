@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160330054309) do
+ActiveRecord::Schema.define(version: 20160330173443) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "category_name"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20160330054309) do
     t.string   "priority_flg"
     t.boolean  "ending_flg",    default: false
     t.boolean  "reminder_mail", default: false
+    t.datetime "schedule_sta"
+    t.datetime "schedule_end"
   end
 
   add_index "to_do_lists", ["category_id"], name: "index_to_do_lists_on_category_id"
