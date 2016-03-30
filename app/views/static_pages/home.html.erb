@@ -23,6 +23,59 @@
 
   </div>
 
+    <script type="text/javascript">
+      $(document).ready(function() {
+      return $('#calendar').fullCalendar({
+        header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'month,agendaWeek,agendaDay'
+        },
+        defaultView: 'month',
+        slotMinutes: 30,
+        timeFormat: 'H:mm',
+        viewRender: function(view, element, end) {
+          return $.ajax({
+            url: '/calendar/<%= @user.id %>',
+            dataType: 'json',
+            type: "get",
+            success: function(EventSource) {
+              $('#calendar').fullCalendar('removeEvents');
+              return $('#calendar').fullCalendar('addEventSource', EventSource);
+            }
+          });
+        },
+        eventDrop: function(event, delta, minuteDelta, allDay, revertFunc) {
+          if (!confirm(event.title + "を" + event.start.format() + "に移動します")) {
+            revertFunc();
+          }
+          return {
+            eNt: function(drag, event, allDay, revertFunc) {
+              return $.ajax({
+                url: '/calendar/<%= @user.id %>',
+                type: 'patch',
+                dataType: 'json',
+                data: {
+                  id: event.id,
+                  start: event.start.format(),
+                  allday: allDay,
+                  drag: drag
+                },
+                success: function(json) {
+                  calendar.fullCalendar('updateEvent', event);
+                },
+                error: function() {
+                  revertFunc();
+                }
+              });
+            }
+          };
+        }
+      });
+    });
+
+    </script>
+
 <% else %>
 
   <div class="jumbotron">

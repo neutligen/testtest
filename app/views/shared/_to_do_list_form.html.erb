@@ -26,7 +26,7 @@
     </div>
 
     <div class='input-group date datepicker' id="picker">
-    <%= f.text_field :schedule_end, class: "form-control", placeholder: "終了日時を選択してください=>" %>
+    <%= f.text_field :schedule_end, data: {:date_format => 'YYYY/MM/DD hh:mm'}, class: "form-control", placeholder: "終了日時を選択してください=>" %>
     <span class="input-group-addon"></span>
     </div>
 

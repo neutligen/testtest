@@ -6,7 +6,9 @@
   <%= image_tag to_do_list.picture.url if to_do_list.picture? %>
 </span>
 <span class="timestamp listedlist">
+  <% if !to_do_list.schedule_sta.nil? %>
   <%= to_do_list.schedule_sta.month %>月<%= to_do_list.schedule_sta.day %>日<%= to_do_list.schedule_sta.hour %>時<%= to_do_list.schedule_sta.min %>分〜 <br>
+  <% end %>
   <% if current_user?(to_do_list.user)%>
     <%= link_to 'x 削除', to_do_list, method: :delete, class: "btn btn-danger delbtn", data: {confirm: "削除してよろしいですか？"} %>
   <% end %>
