@@ -4,7 +4,7 @@ class ToDoListTest < ActiveSupport::TestCase
  
  def setup
  	@user = users(:michael)
- 	@to_do_list = @user.to_do_lists.build(title: "マラソん")
+ 	@to_do_list = @user.to_do_lists.build(title: "マラソん", category_id: 1, priority_flg: "lite")
  end
 
  test "正当なリストは認証を通過する" do
@@ -28,5 +28,13 @@ class ToDoListTest < ActiveSupport::TestCase
 
  test "現在に近いものから読み出す" do
  	assert_equal to_do_lists(:most_recent), ToDoList.first
+ end
+
+ test "ToDoの完了と完了解除" do
+ 	assert_not @to_do_list.ending_flg
+ 	@to_do_list.done
+ 	assert @to_do_list.ending_flg
+ 	@to_do_list.undone
+ 	assert_not @to_do_list.ending_flg
  end
 end

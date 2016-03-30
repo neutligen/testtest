@@ -11,16 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160330002827) do
+ActiveRecord::Schema.define(version: 20160330054309) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "category_name"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "categories", ["user_id", "created_at"], name: "index_categories_on_user_id_and_created_at"
+  add_index "categories", ["user_id"], name: "index_categories_on_user_id"
 
   create_table "to_do_lists", force: :cascade do |t|
     t.text     "title"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "picture"
+    t.integer  "category_id"
+    t.date     "schedule_date"
+    t.time     "schedule_time"
+    t.text     "comment"
+    t.string   "priority_flg"
+    t.boolean  "ending_flg",    default: false
+    t.boolean  "reminder_mail", default: false
   end
 
+  add_index "to_do_lists", ["category_id"], name: "index_to_do_lists_on_category_id"
+  add_index "to_do_lists", ["user_id", "category_id"], name: "index_to_do_lists_on_user_id_and_category_id"
   add_index "to_do_lists", ["user_id", "created_at"], name: "index_to_do_lists_on_user_id_and_created_at"
   add_index "to_do_lists", ["user_id"], name: "index_to_do_lists_on_user_id"
 

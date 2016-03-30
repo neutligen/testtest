@@ -63,9 +63,9 @@ class UserTest < ActiveSupport::TestCase
 		assert_not @user.authenticated?(:remember, '')
 	end
 	
-	test "ユーザが削除されたら紐づくマイクロポストも削除する" do
+	test "ユーザが削除されたら紐づくToDoListも削除する" do
 		@user.save
-		@user.to_do_lists.create(title: "メラミ！")
+		@user.to_do_lists.create(title: "メラミ！", category_id: 6, priority_flg: "lite")
 		assert_difference 'ToDoList.count', -1 do
 			@user.destroy
 		end

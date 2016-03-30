@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :categories, dependent: :destroy
+  # has_many_throughはuser.to_do_lists.include?(@category)みたいのが使えるかもと思って入れてみた。後々不要だったら削除しようと思う。_20150403
+  has_many :to_do_lists, through: :categories
 	has_many :to_do_lists, dependent: :destroy
 	attr_accessor :remember_token, :activation_token, :reset_token
     before_save :downcase_email

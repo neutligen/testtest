@@ -24,7 +24,7 @@ class ToDoListsController < ApplicationController
 	private
 
 	  def to_do_list_params
-	  	params.require(:to_do_list).permit(:title, :picture)
+	  	params.require(:to_do_list).permit(:title, :category_id, :priority_flg, :schedule_date, :schedule_time, :comment, :ending_flg, :reminder_mail, :picture)
 	  end
 
 	  def correct_user

@@ -18,7 +18,7 @@ class ToDoListsInterfaceTest < ActionDispatch::IntegrationTest
     # 有効な登録
     content = "空欄はダメらしい。。。"
     assert_difference 'ToDoList.count', 1 do
-    	post to_do_lists_path to_do_list: {title: content}
+    	post to_do_lists_path to_do_list: {title: content, category_id: 1, priority_flg: "lite"}
     end
     assert_redirected_to root_url
     follow_redirect!
