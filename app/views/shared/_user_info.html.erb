@@ -1,4 +1,8 @@
 <%= link_to gravatar_for(current_user, size:50), current_user %>
   <h1><%= current_user.email[/[a-z\d\w\-.]+/,0] %></h1>
-  <span><%= link_to "プロフィール画面へ", current_user %></span>
+  <span>
+    <% if current_user.admin? %>
+  　　<%= link_to "ユーザ管理画面へ", current_user %>
+    <% end %>
+  </span>
   <span><%= current_user.to_do_lists.count %>件のリスト</span>
