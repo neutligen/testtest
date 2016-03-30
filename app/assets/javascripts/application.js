@@ -11,9 +11,17 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 //= require moment
+//= require bootstrap-datetimepicker
 //= require fullcalendar
+
+var data = {'data-date-format': 'YYYY-MM-DD hh:mm:ss' };
+$(function(){
+  $('.datepicker').attr(data);
+  $('.datepicker').datetimepicker();
+});

@@ -48,6 +48,10 @@ gem 'sdoc', '0.4.0', group: :doc
 gem 'fullcalendar-rails', '2.6.1.0'
 # fullcalendarを使うのに必要なgem
 gem 'momentjs-rails', '2.11.0'
+# dateTimePickerを入れてみよう！
+gem 'bootstrap3-datetimepicker-rails'
+# 画面遷移時にカレンダーが出ない問題解決用
+gem 'jquery-turbolinks'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

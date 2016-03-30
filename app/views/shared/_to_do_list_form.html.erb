@@ -8,15 +8,20 @@
 
     <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
 
-    <h4>実施日時</h4>
-    <span class="date_pdown">
-    <%= f.date_select :schedule_date, {:use_month_numbers => true, :default => Time.zone.now, :date_separator => '/'} %>
-    </span>
-    <span class="sep"></span>
-    <span class="time_pdown">
-    <%= f.time_select :schedule_time, {:default => Time.zone.now}%>
-    </span>
     <%= f.text_area :comment, class: "form-control", placeholder:"コメント" %>
+
+    <div class="priority_flg">
+      <%= f.select :priority_flg, ["優先", "普通", "後で"], {}, class: "form-control" %>
+    </div>
+    <div class="ending_flg">
+      <%= f.select :ending_flg, ["未完了", "完了済み"], {}, class: "form-control" %>
+    </div>
+
+    <h4 class="relocate">日時指定</h4>
+    <div class='input-group date datepicker' id="picker">
+    <%= f.text_field :schedule_date, class: "form-control", placeholder: "日時を選択してください=>" %>
+    <span class="input-group-addon">
+    </div>
 
   </div>
   <%= f.submit "登録", class: "btn btn-success" %>

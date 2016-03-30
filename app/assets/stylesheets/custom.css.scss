@@ -262,11 +262,24 @@ span.picture {
   padding-bottom: 5px;
 }
 
-#to_do_list_schedule_date_1i, #to_do_list_schedule_date_2i, #to_do_list_schedule_date_3i {
-  float:left;
-  width: 25%;
+#picker {
+  margin-bottom: 20px;
 }
 
 .sep {
+  clear: both;
+}
+
+.priority_flg, .ending_flg {
+  margin-top: 15px;
+  float: left;
+  width: 45%;
+}
+
+.priority_flg {
+  margin-right: 10%;
+}
+
+.relocate {
   clear: both;
 }
