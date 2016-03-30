@@ -60,4 +60,12 @@ module SessionsHelper
     session[:forwarding_url] = request.url if request.get?    
   end
 
+  # ユーザに紐づくカテゴリー名前の配列を取り出す
+  def my_category(user)
+    @cids = user.category_ids
+    cids.map do |id|
+      Category.find_by(id: id).category_name
+    end
+  end
+
 end

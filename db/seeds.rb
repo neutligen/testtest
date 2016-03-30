@@ -30,6 +30,13 @@ users = User.order(:created_at).take(6)
 end
 
 # カテゴリ
+
+Category.create!(category_name: "宿題", user_id: 1 )
+Category.create!(category_name: "マラソン", user_id: 1 )
+Category.create!(category_name: "筋トレ", user_id: 1 )
+Category.create!(category_name: "執筆", user_id: 1 )
+Category.create!(category_name: "早起き", user_id: 1 )
+
 6.times do |n|
   category_name = "#{n}stuff"
   user_id = n

@@ -24,6 +24,7 @@ class UsersController < ApplicationController
       log_in @user
       @user.send_activation_email
   		flash[:info] = "Habitizeにご登録いただき、ありがとうございます！ お送りしたメールからアカウントを有効化してください。"
+      Category.create(category_name: "カテゴリ(デフォルト)", user_id: @user.id)
   		redirect_to @user
   	else
   		render 'new'

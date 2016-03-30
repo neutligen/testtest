@@ -209,7 +209,7 @@ input {
 
 /* ToDoList */
 
-.to_do_lists {
+.to_do_lists_comment {
   list-style: none;
   padding: 0;
   li {
@@ -260,4 +260,13 @@ span.picture {
 
 .photo_layout {
   padding-bottom: 5px;
+}
+
+#to_do_list_schedule_date_1i, #to_do_list_schedule_date_2i, #to_do_list_schedule_date_3i {
+  float:left;
+  width: 25%;
+}
+
+.sep {
+  clear: both;
 }

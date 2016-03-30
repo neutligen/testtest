@@ -1,8 +1,23 @@
 <%= form_for(@to_do_list, html: { multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.label :title, "ToDoリスト登録" %>
-    <%= f.text_area :title, class: "form-control", placeholder: "タイトル" %>
+
+    <h3>ToDoリスト登録</h3>
+
+    <%= f.select :category_id, @my_categories, {}, class: "form-control" %>
+
+    <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
+
+    <h4>実施日時</h4>
+    <span class="date_pdown">
+    <%= f.date_select :schedule_date, {:use_month_numbers => true, :default => Time.zone.now, :date_separator => '/'} %>
+    </span>
+    <span class="sep"></span>
+    <span class="time_pdown">
+    <%= f.time_select :schedule_time, {:default => Time.zone.now}%>
+    </span>
+    <%= f.text_area :comment, class: "form-control", placeholder:"コメント" %>
+
   </div>
   <%= f.submit "登録", class: "btn btn-success" %>
   <span class="picture">
