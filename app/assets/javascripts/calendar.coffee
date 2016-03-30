@@ -14,7 +14,7 @@ $(document).ready ->
 
     viewRender: (view, element, end) -> 
       $.ajax({
-        url: '/calendar/105',
+        url: '/calendar/1',
         dataType: 'json',
         type:"get",
         success: (EventSource) ->
