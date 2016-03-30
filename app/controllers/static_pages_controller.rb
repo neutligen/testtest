@@ -2,6 +2,10 @@ class StaticPagesController < ApplicationController
 	before_action :user_set
 
   def home
+    if logged_in?
+      @to_do_list = @user.to_do_lists.build
+      @to_do_lists = @user.to_do_lists.paginate(page: params[:page])
+    end
   end
 
   def help

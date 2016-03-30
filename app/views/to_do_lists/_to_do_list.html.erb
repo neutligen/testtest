@@ -1,0 +1,14 @@
+<li id="to_do_list-<%= to_do_list.id %>">
+<!--暫定的にgravatarを取ってくるが、カテゴリカラーに変更したい-->
+<%= link_to gravatar_for(to_do_list.user, size: 50), to_do_list.user %>
+<span class="title"><%= link_to to_do_list.title, to_do_list.user %></span>
+<span class="content">
+  <%= image_tag to_do_list.picture.url if to_do_list.picture? %>
+</span>
+<span class="timestamp">
+  <%= time_ago_in_words(to_do_list.created_at) %>前に登録
+  <% if current_user?(to_do_list.user)%>
+    <%= link_to "削除", to_do_list, method: :delete, data: {confirm: "削除してよろしいですか？"} %>
+  <% end %>
+</span>
+</li>

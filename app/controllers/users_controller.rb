@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @to_do_lists = @user.to_do_lists.paginate(page: params[:page])
   end
 
   def new
@@ -56,15 +57,6 @@ class UsersController < ApplicationController
 	  end
 
     # beforeフィルター
-
-    # ログイン済みユーザーかどうか確認
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] =  "ログインしてください。"
-        redirect_to login_url
-      end
-    end
 
     # 正しいユーザーの作業か確認
     def correct_user

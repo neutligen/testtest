@@ -22,3 +22,9 @@ User.create!(email: "example@railstutorial.org",
                activated:true,
                activated_at: Time.zone.now)
 end
+
+users = User.order(:created_at).take(6)
+50.times do
+  title = Faker::Lorem.sentence(5)
+  users.each { |user| user.to_do_lists.create!(title: title) }
+end
