@@ -19,5 +19,4 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: user.email, subject: "パスワード再設定フォーム"
   end
-
 end
