@@ -1,5 +1,9 @@
 <li id="category-<%= category.id %>">
-  <span class="category_name"><%= category.category_name %>
+  <span class="category_name">
+    <%= category.category_name %>
+  </span>
+  <span>
     <%= link_to 'x 削除', category, method: :delete, class: "btn btn-danger delbtn", data: {confirm: "カテゴリに属するすべてのToDoリストが削除されます。削除してよろしいですか？"} %>
   </span>
+  <div class="clear_float"></div>
 </li>
