@@ -1,0 +1,16 @@
+<% provide(:title, "カテゴリ編集") %>
+  <div class="row">
+  	<div class="col-md-6 col-md-offset-3">
+      <h1>カテゴリ編集</h1>
+      <section class="category_form">
+        <%= render 'shared/category_form' %>
+      </section>
+  		<section class="edit_category">
+        <h3>登録済みのカテゴリ</h3>
+  			<ol class="categories">
+  			<%= render @categories %>
+  			</ol>
+  			<%= will_paginate @categories %>
+  		</section>
+  	</div>
+  </div>

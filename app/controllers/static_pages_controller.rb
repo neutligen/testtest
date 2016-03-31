@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
 	before_action :user_set
+# モーダルの夢を見たが、"to_key"のエラー(エンティティ(集合)と個別(クリエイト)が共存できないとか)が出ちゃって厳しい_20160406
+  # before_action :category_set
 
   def home
     if logged_in?
@@ -24,6 +26,12 @@ class StaticPagesController < ApplicationController
 
   # gravatarでnavbarに画像を表示するためには@userにログイン中のユーザが格納されている必要があるための対応_20160328
   def user_set
-      @user ||= current_user
+    @user ||= current_user
   end
+
+# モーダルの夢を見たが、"to_key"のエラー(エンティティ(集合)と個別(クリエイト)が共存できないとか)が出ちゃって厳しい_20160406
+  # def category_set
+  #   @category = @user.categories.paginate(page: params[:page])
+  # end 
+
 end

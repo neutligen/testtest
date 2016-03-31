@@ -34,6 +34,7 @@
         defaultView: 'month',
         slotMinutes: 30,
         timeFormat: 'H:mm',
+        editable: true,
         viewRender: function(view, element, end) {
           return $.ajax({
             url: '/calendar/<%= @user.id %>',
@@ -50,7 +51,7 @@
             revertFunc();
           }
           return {
-            eNt: function(drag, event, allDay, revertFunc) {
+            eNt: function(drag, end, event, allDay, revertFunc) {
               return $.ajax({
                 url: '/calendar/<%= @user.id %>',
                 type: 'patch',

@@ -257,11 +257,11 @@ span.picture {
 /*木村の設定*/
 
 /*ヘッダーパーシャル*/
-
 .photo_layout {
   padding-bottom: 5px;
 }
 
+/*ToDoリスト登録周り*/
 #picker {
   margin-bottom: 20px;
 }
@@ -283,10 +283,28 @@ span.picture {
   float: left;
 }*/
 
+/*ToDoリスト、カテゴリリスト周り共通*/
 .delbtn {
   float: right;
 }
 
 .clear_float {
   clear: both;
+}
+
+/*カテゴリリスト周り*/
+
+.categories {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .category_name {
+    line-height: 32px;
+    font-size: 18px;
+    display: block;
+    margin-left: 60px;
+  }
 }

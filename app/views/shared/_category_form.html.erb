@@ -1,0 +1,7 @@
+<%= form_for(@category) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+  	<%= f.text_field :category_name, class: "form-control", placeholder: "新しいカテゴリを追加" %>
+  </div>
+  <%= f.submit "登録", class: "btn btn-success" %>
+<% end %>
