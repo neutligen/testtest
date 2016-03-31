@@ -26,7 +26,7 @@ class PasswordResetsController < ApplicationController
     if params[:user][:password].empty?
       @user.errors.add(:password, "パスワードが入力されていません。")
       render 'edit'
-    elsif @user.update_attriburtes(user_params)
+    elsif @user.update_attributes(user_params)
       log_in @User
       flash[:info] = "パスワードが変更されました。"
       redirect_to @root_url
