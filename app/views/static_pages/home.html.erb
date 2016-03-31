@@ -15,7 +15,9 @@
     <% if @user.to_do_lists.any? %>
     <h3><%= @user.to_do_lists.count %>件のリスト</h3>
     <ol class="to_do_lists">
-      <%= render @to_do_lists %>
+      <% if !@to_do_list.ending_flg %>
+        <%= render @to_do_lists if !@to_do_list.ending_flg %>
+      <% end %>
     </ol>
     <%= will_paginate @to_do_lists %>
     <% end %>

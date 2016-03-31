@@ -22,6 +22,12 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
+  def render_to_do_lists_condition
+    if !@to_do_list.ending_flg
+      render :partial => @to_do_lists
+    end
+  end
+
   private
 
   # gravatarでnavbarに画像を表示するためには@userにログイン中のユーザが格納されている必要があるための対応_20160328

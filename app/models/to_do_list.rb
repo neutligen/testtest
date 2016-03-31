@@ -9,16 +9,6 @@ class ToDoList < ActiveRecord::Base
   validates :priority_flg, presence: true
   validate :picture_size
 
-  # ToDoListを完了する
-  def done
-    update_attribute(:ending_flg, true)
-  end
-
-  # ToDoListの完了を取り消す
-  def undone
-    update_attribute(:ending_flg, false)
-  end
-
   private
 
     # アップロード画像のサイズを検証する

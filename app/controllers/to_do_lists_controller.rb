@@ -1,7 +1,7 @@
 class ToDoListsController < ApplicationController
 
-	before_action :logged_in_user, only: [:create, :destroy, :show, :update]
-	before_action :correct_user, only: :destroy
+	before_action :logged_in_user, only: [:create, :destroy, :show, :update, :edit]
+	before_action :correct_user, only: [:destroy, :edit]
 
 	def create
 		@user = current_user
@@ -21,12 +21,18 @@ class ToDoListsController < ApplicationController
 	end
 
 	def update
-     @to_do_list = current_user.to_do_lists.find(params[:id])
-    if @to_do_list.update_attributes(to_do_list_params)
-      redirect_to root_url
-    else
-      render 'static_pages/home'
-    end
+	  @to_do_list = current_user.to_do_lists.find(params[:id])
+	  if @to_do_list.update_attributes(to_do_list_params)
+	    redirect_to root_url
+	  else
+	    render 'static_pages/home'
+	  end
+  end
+
+  def edit
+    @to_do_list.update_attribute(:ending_flg, 1)
+		flash[:info] = "完了一覧に移動しました。"
+		redirect_to root_url
   end
 
 	def destroy

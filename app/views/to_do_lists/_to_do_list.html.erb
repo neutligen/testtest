@@ -1,17 +1,23 @@
-<li id="to_do_list-<%= to_do_list.id %>">
-<!--暫定的にgravatarを取ってくるが、カテゴリカラーに変更したい-->
-<%= link_to gravatar_for(to_do_list.user, size: 50), to_do_list.user %>
-<span class="title"><%= link_to to_do_list.title, to_do_list %></span>
-<span class="content">
-  <%= image_tag to_do_list.picture.url if to_do_list.picture? %>
-</span>
-<span class="timestamp listedlist">
-  <% if !to_do_list.schedule_sta.nil? %>
-  <%= to_do_list.schedule_sta.month %>月<%= to_do_list.schedule_sta.day %>日<%= to_do_list.schedule_sta.hour %>時<%= to_do_list.schedule_sta.min %>分〜 <br>
-  <% end %>
-  <% if current_user?(to_do_list.user)%>
-    <%= link_to 'x 削除', to_do_list, method: :delete, class: "btn btn-danger delbtn", data: {confirm: "削除してよろしいですか？"} %>
-  <% end %>
-</span>
-<div class="clear_float"></div>
-</li>
+<% if !to_do_list.ending_flg %>
+	<li id="to_do_list-<%= to_do_list.id %>">
+	<!--暫定的にgravatarを取ってくるが、カテゴリカラーに変更したい-->
+		<%= link_to gravatar_for(to_do_list.user, size: 50), to_do_list.user %>
+		<span class="title">
+		  <%= link_to to_do_list.title, to_do_list %>
+	    <%= to_do_list.ending_flg %>
+		</span>
+		<span class="content">
+		  <%= image_tag to_do_list.picture.url if to_do_list.picture? %>
+		</span>
+		<span class="timestamp listedlist">
+		  <% if !to_do_list.schedule_sta.nil? %>
+		  <%= to_do_list.schedule_sta.month %>月<%= to_do_list.schedule_sta.day %>日<%= to_do_list.schedule_sta.hour %>時<%= to_do_list.schedule_sta.min %>分〜 <br>
+		  <% end %>
+		  <% if current_user?(to_do_list.user)%>
+		    <%= link_to 'x 削除', to_do_list, method: :delete, class: "btn btn-danger delbtn", data: {confirm: "削除してよろしいですか？"} %>
+		    <%= link_to '完了', edit_to_do_list_path(to_do_list, ending_flg: 1), class: "btn btn-primary compbtn", data: {confirm: "リストから消えますが、よろしいですか？\n（完了一覧に移動します）"} %>
+		  <% end %>
+		</span>
+		<div class="clear_float"></div>
+	</li>
+<% end %>
