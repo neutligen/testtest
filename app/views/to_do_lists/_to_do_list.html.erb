@@ -1,4 +1,4 @@
-<% if !to_do_list.ending_flg %>
+<% if !to_do_list.ending_flg %>	
 	<li id="to_do_list-<%= to_do_list.id %>">
 	<!--暫定的にgravatarを取ってくるが、カテゴリカラーに変更したい-->
 		<%= link_to gravatar_for(to_do_list.user, size: 50), to_do_list.user %>

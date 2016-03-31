@@ -15,9 +15,7 @@
     <% if @user.to_do_lists.any? %>
     <h3>未完了リスト</h3>
     <ol class="to_do_lists">
-      <% if !@to_do_list.ending_flg %>
-        <%= render @to_do_lists if !@to_do_list.ending_flg %>
-      <% end %>
+      <%= render @to_do_lists %>
     </ol>
     <%= will_paginate @to_do_lists %>
     <% end %>

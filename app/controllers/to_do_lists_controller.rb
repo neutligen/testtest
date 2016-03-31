@@ -1,7 +1,12 @@
 class ToDoListsController < ApplicationController
 
-	before_action :logged_in_user, only: [:create, :destroy, :show, :update, :edit]
+	before_action :logged_in_user, only: [:index, :create, :destroy, :show, :update, :edit]
 	before_action :correct_user, only: [:destroy, :edit]
+
+	def index
+		@user = current_user
+		@to_do_lists = @user.to_do_lists.paginate(page: params[:page])
+	end
 
 	def create
 		@user = current_user

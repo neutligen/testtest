@@ -1,0 +1,36 @@
+<% provide(:title, '全リスト') %>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h1>全リスト</h1>
+
+		<%= will_paginate %>
+
+		<ul class="to_do_lists">
+		  <% @to_do_lists.each do |list| %>
+		    <li>
+		      <%= gravatar_for @user, size: 50 %>
+		      <span class="category">
+				    <%= Category.find(list.category_id).category_name %>
+			    </span>
+		      <%= link_to list.title, list, class: "title-font" %>
+		      <span class="content">
+				    <%= image_tag list.picture.url if list.picture? %>
+			    </span>
+			    <span class="timestamp listedlist">
+				    <% if !list.schedule_sta.nil? %>
+				      <%= list.schedule_sta.month %>月<%= list.schedule_sta.day %>日<%= list.schedule_sta.hour %>時<%= list.schedule_sta.min %>分〜 <br>
+				    <% end %>
+				    <% if current_user?(list.user)%>
+				      <%= link_to 'x 削除', list, method: :delete, class: "btn btn-danger delbtn", data: {confirm: "削除してよろしいですか？"} %>
+				      <%= link_to '完了', edit_to_do_list_path(list, ending_flg: 1), class: "btn btn-primary compbtn", data: {confirm: "リストから消えますが、よろしいですか？\n（完了一覧に移動します）"} %>
+				    <% end %>
+				  </span>
+				<div class="clear_float"></div>
+
+		    </li>
+		  <% end %>
+		</ul>
+
+		<%= will_paginate %>
+	</div>
+</div>
