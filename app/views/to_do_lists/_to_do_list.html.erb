@@ -2,9 +2,11 @@
 	<li id="to_do_list-<%= to_do_list.id %>">
 	<!--暫定的にgravatarを取ってくるが、カテゴリカラーに変更したい-->
 		<%= link_to gravatar_for(to_do_list.user, size: 50), to_do_list.user %>
-		<span class="title">
+		<span class="category">
+		  <%= Category.find(to_do_list.category_id).category_name %>
+		</span>
+		<span class="title title-font">
 		  <%= link_to to_do_list.title, to_do_list %>
-	    <%= to_do_list.ending_flg %>
 		</span>
 		<span class="content">
 		  <%= image_tag to_do_list.picture.url if to_do_list.picture? %>

@@ -13,7 +13,7 @@
 
   	<div class="col-md-8">
     <% if @user.to_do_lists.any? %>
-    <h3><%= @user.to_do_lists.count %>件のリスト</h3>
+    <h3>未完了リスト</h3>
     <ol class="to_do_lists">
       <% if !@to_do_list.ending_flg %>
         <%= render @to_do_lists if !@to_do_list.ending_flg %>

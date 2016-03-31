@@ -1,3 +1,8 @@
+<h1><%= @to_do_list.title %></h1>
+<div class="pict-show">
+  <%= image_tag @to_do_list.picture.url if @to_do_list.picture? %>
+</div>
+
 <%= form_for(@to_do_list) do |f| %>
 
 <div class="row">
@@ -6,21 +11,44 @@
 		
 	  <%= render 'shared/error_messages', object: f.object %>
 	  <div class="field">
+
+      <%= f.select :category_id, Category.find(@cids).map{|cid| [cid.category_name, cid.id]}, {}, class: "form-control" %>
+
 	    <%= f.text_field :title, class: "form-control", placeholder: @to_do_list.title %>
-
-	    <div class='input-group date datepicker' id="picker">
-	    <%= f.text_field :schedule_sta, data: {:date_format => 'YYYY/MM/DD hh:mm'}, class: "form-control", placeholder: @to_do_list.schedule_sta %>
-	    <span class="input-group-addon"></span>
-	    </div>
-
-	    <div class='input-group date datepicker' id="picker">
-	    <%= f.text_field :schedule_end, data: {:date_format => 'YYYY/MM/DD hh:mm'}, class: "form-control", placeholder: @to_do_list.schedule_end %>
-	    <span class="input-group-addon"></span>
-	    </div>
 
 	    <%= f.text_area :comment, class: "form-control", placeholder: @to_do_list.comment %>
 
+	    <%= f.select :priority_flg, ["優先", "普通", "後で"], {}, class: "form-control priority_flg", :selected => @to_do_list.priority_flg %>
+
+	    <div class="sep"></div>
+
+	    <%= f.label :remember_me, class: "checkbox inline" do %>
+		    <h4 class="relocate">日時指定</h4>
+		    <%= f.check_box :reminder_mail, id: "to_do_list_reminder_mail", checked: @to_do_list.reminder_mail ? true : false %>
+		    <span>開始時間にリマインダメールを送信</span>
+	    <% end %>
+
+	    <div class='input-group date datepicker' id="picker">
+		    <%= f.text_field :schedule_sta, data: {:date_format => 'YYYY/MM/DD hh:mm'}, class: "form-control", placeholder: @to_do_list.schedule_sta %>
+		    <span class="input-group-addon"></span>
+	    </div>
+
+	    <div class='input-group date datepicker' id="picker">
+		    <%= f.text_field :schedule_end, data: {:date_format => 'YYYY/MM/DD hh:mm'}, class: "form-control", placeholder: @to_do_list.schedule_end %>
+		    <span class="input-group-addon"></span>
+	    </div>
+
 	    <%= f.submit "更新", class: "btn btn-success" %>
+
+	    <span class="picture">
+  	    <%= f.file_field :picture, class: "form-control", accept: 'image/jpeg,image/gif,image/png', placeholder: "ファイルを上書きする" %>
+      </span>
+
+      <%= f.label :ending_flg, class: "checkbox inline" do %>
+	      <%= f.check_box :ending_flg, id: "to_do_list_ending_flg", checked: @to_do_list.ending_flg ? true : false  %>
+	      <span>完了!</span>
+      <% end %>
+
 	  </div>
 
 	 </div>

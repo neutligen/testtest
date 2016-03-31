@@ -17,6 +17,7 @@ class ToDoListsController < ApplicationController
 
 	def show
 		@user = current_user
+		@cids = @user.category_ids
 		@to_do_list = current_user.to_do_lists.find(params[:id])
 	end
 
@@ -31,7 +32,7 @@ class ToDoListsController < ApplicationController
 
   def edit
     @to_do_list.update_attribute(:ending_flg, 1)
-		flash[:info] = "完了一覧に移動しました。"
+		flash[:info] = "「#{@to_do_list.title}」を完了一覧に移動しました。"
 		redirect_to root_url
   end
 

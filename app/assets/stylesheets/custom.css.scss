@@ -297,6 +297,16 @@ span.picture {
   clear: both;
 }
 
+.category {
+  display: block;
+  font-size: 12px;
+}
+
+.title-font {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 /*カテゴリリスト周り*/
 
 .categories {
@@ -312,4 +322,11 @@ span.picture {
     display: block;
     margin-left: 60px;
   }
+}
+
+/*ToDoリスト詳細周り*/
+
+.pict-show {
+  text-align: center;
+  margin:30px 0 30px 0;
 }
