@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
 			flash[:info] = "カテゴリが追加されました。"
 			redirect_to categories_path
 		else
-			render categoies_path
+			render categories_path
 		end
 	end
 
