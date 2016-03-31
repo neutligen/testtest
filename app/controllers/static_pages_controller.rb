@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
       @to_do_lists = @user.to_do_lists.paginate(page: params[:page])
       # ユーザに紐づくカテゴリー名前の配列を取り出す
       @cids = @user.category_ids
-      @my_categories = @cids.map { |id| Category.find_by(id: id).category_name }
+      # @my_categories = @cids.map { |id| Category.find_by(id: id).category_name }
     end
   end
 

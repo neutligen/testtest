@@ -4,7 +4,7 @@
 
     <h3>ToDoリスト登録</h3>
 
-    <%= f.select :category_id, @my_categories, {}, class: "form-control" %>
+    <%= f.select :category_id, Category.find(@cids).map{|cid| [cid.category_name, cid.id]}, {}, class: "form-control" %>
 
     <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
 
