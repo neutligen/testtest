@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       @user.send_activation_email
   		flash[:info] = "Habitizeにご登録いただき、ありがとうございます！ お送りしたメールからアカウントを有効化してください。"
       Category.create(category_name: "カテゴリ(デフォルト)", user_id: @user.id)
-  		redirect_to @user
+  		redirect_to root_url
   	else
   		render 'new'
   	end
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "パスワードを更新しました。"
-      redirect_to @user
+      redirect_to root_url
     else
       render 'edit'
     end
