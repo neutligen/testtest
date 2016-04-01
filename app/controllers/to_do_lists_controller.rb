@@ -16,7 +16,8 @@ class ToDoListsController < ApplicationController
 			flash[:info] = "ToDoリストが登録されました。"
 			redirect_to root_url
 		else
-			render root_url
+			@cids = @user.category_ids
+			render 'static_pages/home'
 		end
 	end
 

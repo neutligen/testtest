@@ -13,7 +13,9 @@ class CategoriesController < ApplicationController
 			flash[:info] = "カテゴリが追加されました。"
 			redirect_to categories_path
 		else
-			render 'categories_path'
+			@user = current_user
+			@categories = @user.categories.paginate(page: params[:page])
+			render 'categories/index'
 		end
 	end
 
