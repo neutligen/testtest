@@ -23,7 +23,7 @@ class CategoriesController < ApplicationController
 		@category = current_user.categories.find_by(id: params[:id])
 		if @category.present?
 			@category.destroy
-			flash[:info] = "カテゴリを削除しました。"
+			flash[:info] = "カテゴリ「#{@category.category_name}」を削除しました。"
 			redirect_to categories_path
 		else
 			flash[:danger] = "無効な操作です。"

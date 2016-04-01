@@ -17,7 +17,7 @@
 		  <% end %>
 		  <% if current_user?(to_do_list.user)%>
 		    <%= link_to 'x 削除', to_do_list, method: :delete, class: "btn btn-danger delbtn", data: {confirm: "削除してよろしいですか？"} %>
-		    <%= link_to '完了', edit_to_do_list_path(to_do_list, ending_flg: 1), class: "btn btn-primary compbtn", data: {confirm: "リストから消えますが、よろしいですか？\n（完了一覧に移動します）"} %>
+		    <%= link_to '完了', edit_to_do_list_path(to_do_list, ending_flg: 1), class: "btn btn-primary compbtn" %>
 		  <% end %>
 		</span>
 		<div class="clear_float"></div>

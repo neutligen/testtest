@@ -38,7 +38,7 @@ class ToDoListsController < ApplicationController
 
   def edit
     @to_do_list.update_attribute(:ending_flg, 1)
-		flash[:info] = "「#{@to_do_list.title}」を完了一覧に移動しました。"
+		flash[:info] = "「#{@to_do_list.title}」完了！（全リストから参照できます）"
 		redirect_to root_url
   end
 
