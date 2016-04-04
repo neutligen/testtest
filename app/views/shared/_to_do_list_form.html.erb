@@ -10,12 +10,9 @@
 
     <%= f.text_area :comment, class: "form-control", placeholder:"コメント" %>
 
-    <div class="priority_flg">
-      <%= f.select :priority_flg, ["優先", "普通", "後で"], {}, class: "form-control" %>
-    </div>
-    <div class="ending_flg">
-      <%= f.select :ending_flg, ["未完了", "完了済み"], {}, class: "form-control" %>
-    </div>
+    <%= f.select :priority_flg, ["優先", "普通", "後で"], {}, class: "form-control priority_flg" %>
+
+    <div class="sep"></div>
 
     <%= f.label :remember_me, class: "checkbox inline" do %>
     <h4 class="relocate">日時指定</h4>
@@ -24,22 +21,29 @@
     <% end %>
 
     <div class='input-group date datepicker' id="picker">
-    <%= f.text_field :schedule_sta, class: "form-control", placeholder: "開始日時を選択してください=>" %>
-    <span class="input-group-addon">
+    <%= f.text_field :schedule_sta, data: {:date_format => 'YYYY/MM/DD hh:mm'}, class: "form-control", placeholder: "開始日時を選択してください=>" %>
+    <span class="input-group-addon"></span>
     </div>
 
     <div class='input-group date datepicker' id="picker">
     <%= f.text_field :schedule_end, class: "form-control", placeholder: "終了日時を選択してください=>" %>
-    <span class="input-group-addon">
+    <span class="input-group-addon"></span>
     </div>
 
   </div
 
   </div>
   <%= f.submit "登録", class: "btn btn-success" %>
+
   <span class="picture">
   	<%= f.file_field :picture, class: "form-control", accept: 'image/jpeg,image/gif,image/png' %>
   </span>
+
+  <%= f.label :ending_flg, class: "checkbox inline" do %>
+    <%= f.check_box :ending_flg %>
+    <span>完了済み（記録するだけ）</span>
+  <% end %>
+
 <% end %>
 
 <script type="text/javascript">

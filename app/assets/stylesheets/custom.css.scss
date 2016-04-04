@@ -190,7 +190,7 @@ input {
   }
 }
 
-#session_remember_me, #to_do_list_reminder_mail {
+#session_remember_me, #to_do_list_reminder_mail, #to_do_list_ending_flg {
   width: auto;
   margin-left: 0;
 }
@@ -267,20 +267,26 @@ span.picture {
 }
 
 .sep {
-  clear: both;
-}
-
-.priority_flg, .ending_flg {
-  margin-top: 15px;
-  float: left;
-  width: 48%;
+  margin-top: 30px;
 }
 
 .priority_flg {
-  margin-right: 4%;
+  margin-top: 10px;
 }
 
 .relocate {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+/*.listedlist {
+  float: left;
+}*/
+
+.delbtn {
+  float: right;
+}
+
+.clear_float {
   clear: both;
-  margin-bottom: 15px;
 }

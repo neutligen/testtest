@@ -15,12 +15,13 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require moment
 //= require bootstrap-datetimepicker
 //= require fullcalendar
+//= require_tree .
 
-var data = {'data-date-format': 'YYYY-MM-DD hh:mm:ss' };
+
+var data = {'data-date-format': 'YYYY/MM/DD hh:mm:ss' };
 $(function(){
   $('.datepicker').attr(data);
   $('.datepicker').datetimepicker();

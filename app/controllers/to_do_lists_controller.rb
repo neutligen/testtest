@@ -1,6 +1,6 @@
 class ToDoListsController < ApplicationController
 
-	before_action :logged_in_user, only: [:create, :destroy]
+	before_action :logged_in_user, only: [:create, :destroy, :show, :update]
 	before_action :correct_user, only: :destroy
 
 	def create
@@ -15,6 +15,20 @@ class ToDoListsController < ApplicationController
 		end
 	end
 
+	def show
+		@user = current_user
+		@to_do_list = current_user.to_do_lists.find(params[:id])
+	end
+
+	def update
+     @to_do_list = current_user.to_do_lists.find(params[:id])
+    if @to_do_list.update_attributes(to_do_list_params)
+      redirect_to root_url
+    else
+      render 'static_pages/home'
+    end
+  end
+
 	def destroy
 		@to_do_list.destroy
 		flash[:info] = "ToDoリストを削除しました。"
@@ -24,12 +38,12 @@ class ToDoListsController < ApplicationController
 	private
 
 	  def to_do_list_params
-	  	params.require(:to_do_list).permit(:title, :category_id, :priority_flg, :schedule_date, :schedule_time, :comment, :ending_flg, :reminder_mail, :picture)
+	  	params.require(:to_do_list).permit(:title, :category_id, :priority_flg, :schedule_sta, :schedule_end, :comment, :ending_flg, :reminder_mail, :picture)
 	  end
 
 	  def correct_user
 	  	@to_do_list = current_user.to_do_lists.find_by(id: params[:id])
 	  	redirect_to root_url if @to_do_list.nil?
 	  end
+	end
 
-end
