@@ -9,12 +9,12 @@
 	    <%= f.text_field :title, class: "form-control", placeholder: @to_do_list.title %>
 
 	    <div class='input-group date datepicker' id="picker">
-	    <%= f.text_field :schedule_sta, class: "form-control", placeholder: @to_do_list.schedule_sta %>
+	    <%= f.text_field :schedule_sta, data: {:date_format => 'YYYY/MM/DD hh:mm'}, class: "form-control", placeholder: @to_do_list.schedule_sta %>
 	    <span class="input-group-addon"></span>
 	    </div>
 
 	    <div class='input-group date datepicker' id="picker">
-	    <%= f.text_field :schedule_end, class: "form-control", placeholder: @to_do_list.schedule_end %>
+	    <%= f.text_field :schedule_end, data: {:date_format => 'YYYY/MM/DD hh:mm'}, class: "form-control", placeholder: @to_do_list.schedule_end %>
 	    <span class="input-group-addon"></span>
 	    </div>
 
