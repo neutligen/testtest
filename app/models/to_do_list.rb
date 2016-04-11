@@ -13,9 +13,9 @@ class ToDoList < ActiveRecord::Base
 
     # アップロード画像のサイズを検証する
     def picture_size
-    	if picture.size > 5.megabytes
-    		error.add(:picture, "ファイルサイズの上限は5MBです。")
-    	end
+      if picture.size > 5.megabytes
+        error.add(:picture, "ファイルサイズの上限は5MBです。")
+      end
     end
 
 end

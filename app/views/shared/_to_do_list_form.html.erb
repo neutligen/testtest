@@ -19,24 +19,16 @@
     <%= f.check_box :reminder_mail %>
     <span>開始時間にリマインダメールを送信</span>
     <% end %>
-
-    <div class='input-group date datepicker' id="picker">
-    <%= f.text_field :schedule_sta, data: {:date_format => 'YYYY/MM/DD hh:mm'}, class: "form-control", placeholder: "開始日時を選択してください=>" %>
-    <span class="input-group-addon"></span>
-    </div>
-
-    <div class='input-group date datepicker' id="picker">
-    <%= f.text_field :schedule_end, data: {:date_format => 'YYYY/MM/DD hh:mm'}, class: "form-control", placeholder: "終了日時を選択してください=>" %>
-    <span class="input-group-addon"></span>
-    </div>
-
-  </div
+開始日時
+　　<%= f.datetime_local_field :schedule_sta, class: "form-control", placeholder: "開始日時を選択してください=>"%>
+終了日時
+　　<%= f.datetime_local_field :schedule_end, class: "form-control", placeholder: "終了日時を選択してください=>"%>
 
   </div>
   <%= f.submit "登録", class: "btn btn-success" %>
 
   <span class="picture">
-  	<%= f.file_field :picture, class: "form-control", accept: 'image/jpeg,image/gif,image/png' %>
+    <%= f.file_field :picture, class: "form-control", accept: 'image/jpeg,image/gif,image/png' %>
   </span>
 
   <%= f.label :ending_flg, class: "checkbox inline" do %>
@@ -48,9 +40,9 @@
 
 <script type="text/javascript">
 $('#to_do_list_picture').bind('change',function(){
-	var size_in_megabytes = this.files[0].size/1024/1024;
-	if (size_in_megabytes > 5) {
-		alert('ファイルサイズの上限は5MBです。ファイルサイズを変更するか、5MB以下のファイルを選択してください。')
-	}
+  var size_in_megabytes = this.files[0].size/1024/1024;
+  if (size_in_megabytes > 5) {
+    alert('ファイルサイズの上限は5MBです。ファイルサイズを変更するか、5MB以下のファイルを選択してください。')
+  }
 });
 </script>
