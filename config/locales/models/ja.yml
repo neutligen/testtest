@@ -1,0 +1,29 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      to_do_list: ToDo
+      category: カテゴリ
+    attributes:
+      user:
+        id: ID
+        created_at: 登録日時
+        updated_at: 更新日時
+        email: メールアドレス
+        password: パスワード
+      to_do_list:
+        title: タイトル
+        id: ID
+        created_at: 登録日時
+        updated_at: 更新日時
+        picture: 写真
+        schedule_date: 日にち
+        schedule_time: 時刻
+        comment: コメント
+        priority_flg: 優先度
+        ending_flg: 完了済み
+        reminder_mail: リマインド
+        schedule_sta: 開始日時
+        schedule_end: 終了日時
+      category:
+        category_name: カテゴリ名
