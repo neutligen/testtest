@@ -1,0 +1,16 @@
+<h1>[<%= "#{Date.today}" %>]のリマインド</h1>
+
+<p><%= @user.email[/[a-z\d\w\-.]+/,0] %>さん、おはようございます！</p>
+
+<h3>本日の予定</h3>
+<ul>
+  <% @todays_to_do_lists.each do |tdl| %>
+  <li><%= tdl.schedule_sta.hour %>時<%= tdl.schedule_sta.min%>分〜<%= tdl.title %></li>
+  <% end %>
+</ul>
+<p>やり方がわからないものは、後回しいにしがち。。。臆せず"すぐやる"のがいいですよ！</p>
+
+<%= link_to "habitize", root_url %>
+
+
+

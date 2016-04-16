@@ -1,0 +1,13 @@
+[<%= "#{Date.today}" %>]のリマインド
+
+<%= @user.email[/[a-z\d\w\-.]+/,0] %>さん、おはようございます！
+
+本日の予定
+
+  <% @todays_to_do_lists.each do |tdl| %>
+  <%= tdl.schedule_sta.hour %>時<%= tdl.schedule_sta.min%>分〜<%= tdl.title %>
+  <% end %>
+
+やり方がわからないものは、後回しいにしがち。。。臆せず"すぐやる"のがいいですよ！
+
+habitize.jp

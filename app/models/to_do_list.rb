@@ -7,7 +7,13 @@ class ToDoList < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 140 }
   validates :category_id, presence: true
   validates :priority_flg, presence: true
+  validates :schedule_sta, presence: true, if: :need_reminder?
   validate :picture_size
+
+  # 24時間以内のToDoならtrueを返す。
+  def todays_todo?
+    schedule_sta < Time.now.since(24.hours) && schedule_sta >= Time.zone.now
+  end
 
   private
 
@@ -16,6 +22,11 @@ class ToDoList < ActiveRecord::Base
       if picture.size > 5.megabytes
         error.add(:picture, "ファイルサイズの上限は5MBです。")
       end
+    end
+
+    # リマインダがtrueの時はschedule_staを必須とする
+    def need_reminder?
+      reminder_mail == true
     end
 
 end
