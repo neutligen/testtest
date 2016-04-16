@@ -9,6 +9,6 @@ class RemindMailer < ApplicationMailer
   	@user = User.find_by(id: user)
   	@to_do_lists = @user.to_do_lists
     @todays_to_do_lists = @to_do_lists.select{|tdl| tdl.todays_todo? && tdl.reminder_mail }
-    mail(to: user.email, subject: "[#{Date.today}]のリマインド")
+    mail(to: @user.email, subject: "[#{Date.today}]のリマインド")
   end
 end
