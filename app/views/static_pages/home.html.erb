@@ -84,11 +84,9 @@
 
 <% else %>
 
-  <div class="jumbotron">
-    <h1>Habitize</h1>
-    <h2>毎日の積み上げができる自分になるために</h2>
-    <%= link_to "新規登録", signup_path, class: "btn btn-lg btn-success" %>
+  <div class="center jumbotron">
+    <%= image_tag "blogo_180x210.png", alt: "habitize_blogo" %>
+    <h2>ToDoをカレンダーとリマインダーで管理するシンプルなアプリ</h2>
+    <%= link_to "新規登録", signup_path, class: "btn btn-lg btn-primary" %>
   </div>
-<%= link_to image_tag("wadachi_2_icon.jpg", alt:"wadachi_2_icon.jpg"), "http://www.i-noh.com"%>
-
 <% end %>
