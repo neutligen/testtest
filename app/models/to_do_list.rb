@@ -12,7 +12,9 @@ class ToDoList < ActiveRecord::Base
 
   # 24時間以内のToDoならtrueを返す。
   def todays_todo?
-    schedule_sta < Time.now.since(24.hours) && schedule_sta >= Time.zone.now
+    if !schedule_sta.nil?
+      schedule_sta < Time.now.since(24.hours) && schedule_sta >= Time.zone.now
+    end
   end
 
   private
