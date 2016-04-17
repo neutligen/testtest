@@ -17,7 +17,7 @@
     <%= f.label :remember_me, class: "checkbox inline" do %>
     <h4 class="relocate">日時指定</h4>
     <%= f.check_box :reminder_mail %>
-    <span>開始時間にリマインダメールを送信</span>
+    <span>リマインダメールを送信</span>
     <% end %>
 開始日時
 　　<%= f.datetime_local_field :schedule_sta, class: "form-control", placeholder: "開始日時を選択してください=>"%>
@@ -28,7 +28,7 @@
   <%= f.submit "登録", class: "btn btn-primary" %>
 
   <span class="picture">
-    <%= f.file_field :picture, class: "form-control", accept: 'image/jpeg,image/gif,image/png' %>
+    <%= f.file_field :picture, class: "form-control pict-up-bg", accept: 'image/jpeg,image/gif,image/png' %>
   </span>
 
   <%= f.label :ending_flg, class: "checkbox inline" do %>
